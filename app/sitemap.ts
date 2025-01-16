@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import caseStudies from '@/constants/casestudy.json'; // Example data source
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://futureacend.com';
+  const baseUrl = 'https://futureascend.com';
 
   // Generate sitemap entries for case studies
   const caseStudyEntries = Object.keys(caseStudies).map((slug) => ({
