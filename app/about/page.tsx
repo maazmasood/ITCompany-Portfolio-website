@@ -1,29 +1,30 @@
 "use client";
 
-import { NavBar } from '@/components/navbar'
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { ArrowDown,ArrowRight, CheckCircle2, Users, Globe, Zap, Shield, Award } from 'lucide-react'
-import Image from "next/image"
-import { AnimatedGradient } from '@/components/animated-gradient'
-import EnhancedContactForm from '@/components/EnhancedContactForm'
-import { Footer } from '@/components/footer'
-import Link from "next/link"
+import Head from "next/head";
+import { NavBar } from '@/components/navbar';
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ArrowDown, ArrowRight, CheckCircle2, Users, Globe, Zap, Shield, Award } from 'lucide-react';
+import Image from "next/image";
+import { AnimatedGradient } from '@/components/animated-gradient';
+import EnhancedContactForm from '@/components/EnhancedContactForm';
+import { Footer } from '@/components/footer';
+import Link from "next/link";
 
 export default function AboutPage() {
-
-
   const values = [
     { title: "Innovation", description: "Pushing the boundaries of what's possible in technology", icon: Zap },
     { title: "Integrity", description: "Maintaining the highest ethical standards in all we do", icon: Shield },
     { title: "Collaboration", description: "Working together to achieve extraordinary results", icon: Users },
     { title: "Excellence", description: "Striving for the highest quality in every project", icon: Award },
-  ]
+  ];
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <NavBar />
-      <main className="flex-grow">
+    <>
+      <main className="flex min-h-screen flex-col" suppressHydrationWarning>
+        <NavBar />
+        <div className="flex-grow">
+
         {/* Hero Section */}
         <section className="bg-gray-900 relative text-white py-24 px-5 md:px-32">
         <AnimatedGradient />
@@ -130,11 +131,11 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+        </div>
 
-        <EnhancedContactForm />
-
-      <Footer />
-      </main>
-    </div>
-  )
-}
+              <EnhancedContactForm />
+              <Footer />
+            </main>
+          </>
+        );
+      }
