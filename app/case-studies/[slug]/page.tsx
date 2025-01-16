@@ -1,0 +1,385 @@
+"use client";
+
+import { NavBar } from '@/components/navbar'
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { ArrowRight,ArrowDown, CheckCircle2, BarChart, Clock, Users, DollarSign } from 'lucide-react'
+import Image from "next/image"
+import EnhancedContactForm from '@/components/EnhancedContactForm'
+import { Footer } from '@/components/footer'
+import Link from "next/link"
+
+import { AnimatedGradient } from '@/components/animated-gradient'
+
+ function getCaseStudy(slug: string) {
+  // Example mock data for the case study (replace with real data fetching)
+  const caseStudies = {
+    "klimanrw-futureascend": {
+      title: "HVAC Selling Platform",
+      client: "Alexander Zittel",
+      industry: "HVAC",
+      duration: "8 months",
+      website: "https://www.klimanrw.de",
+      challenge: "Get into HVAC industury and compete the big gaints, we had to find a new Unique solution to get user attention",
+      solution: "We focused on simplicity by presenting all relevant data upfront and incorporating user reviews to build authenticity and trust. By continuously tracking where users pause or frequently click, we made daily adjustments to align with their attention patterns. Every pixel matters in capturing user interest, which is why we strategically placed calls-to-action (CTAs) at key points. This approach helped us effectively tap into the market ",
+      results: [
+        { metric: "99.9%", description: "Uptime" },
+        { metric: "40+", description: "sales/month" },
+        { metric: "300%", description: "New users" },
+        { metric: "5000%", description: "Return on Investment" },
+      ],
+      testimonial: {
+        quote: "FutureAscend delivered an exceptional solution tailored to the unique challenges of entering the HVAC industry. Working with FutureAscend has been transformative for our business. Their dedication to perfection and market-driven approach exceeded our expectations. I highly recommend them to anyone looking to break into a competitive industry.",
+        author: "Alexander Zittel",
+        role: "Founder and CEO"
+      },
+      image: "/case-studies/klimanrw-futureascend.png",
+      techStack: ["NodeJS", "NextJS", "Vercel", "Google Analytics & Ads"]
+    },
+    "medirises-futureascend": {
+      "title": "Revenue Cycle Management Website",
+      "client": "Jawad Masood",
+      "industry": "Healthcare",
+      "duration": "3 months",
+      "website": "https://www.medirises.com",
+      "challenge": "Breaking into the competitive healthcare space with an intuitive and performance-driven website to showcase MediRises' services effectively and improve user engagement.",
+      "solution": "We crafted a highly interactive, SEO-friendly platform that delivered exceptional performance. Using a modern tech stack, we ensured fast load times, seamless navigation, and scalability. The design emphasized user trust and compliance with healthcare standards.",
+      "results": [
+          { "metric": "99%", "description": "Uptime ensuring seamless access to information" },
+          { "metric": "70%", "description": "Improvement in website load speed" },
+          { "metric": "200%", "description": "Increase in user engagement" },
+          { "metric": "SEO Friendly", "description": "Boosted organic visibility and traffic" }
+      ],
+      "testimonial": {
+          "quote": "FutureAscend's team exceeded our expectations. Their focus on user experience and performance optimization was instrumental in showcasing our services effectively. The results speak for themselves!",
+          "author": "Jawad Masood",
+          "role": "CEO, MediRises"
+      },
+      "image": "/case-studies/medirises-futureascend.png",
+      "techStack": ["Node.js", "Next.js", "Vercel", "Google Analytics & Ads"]
+  },
+  "pvnrw-futureascend": {
+    "title": "Photovoltaik Industry Landing Page",
+    "client": "Confidential",
+    "industry": "Renewable Energy",
+    "duration": "6 months",
+    "website": "https://www.pvnrw.de",
+    "challenge": "The client, a well-established company in the renewable energy sector with over 10 years of experience, needed a modern landing page to drive lead generation and customer engagement. The main goal was to reduce marketing costs while maintaining a strong online presence.",
+    "solution": "We developed a sleek, performance-driven landing page tailored for the renewable energy audience. The design emphasized clarity and simplicity, showcasing the client's offerings and highlighting their experience in the industry. The project also included free custom graphics, on-page SEO, and optimized content to boost search visibility.",
+
+    "results": [
+        { "metric": "60%", "description": "Reduction in marketing costs through efficient design and SEO" },
+        { "metric": "200%", "description": "Increase in lead generation due to improved user engagement" },
+        { "metric": "Germany", "description": "Localized targeting to capture the specific market" },
+        { "metric": "Monthly Payments", "description": "Introduced flexibility in payment options for user convenience" }
+    ],
+    "testimonial": {
+        "quote": "FutureAscend delivered a landing page that not only aligned with our vision but also exceeded our expectations. Their dedication to optimizing performance and creating visually compelling designs helped us achieve significant cost savings and generate more leads.",
+        "author": "Confidential",
+        "role": "CEO, Photovoltaik NRW"
+    },
+    "image": "/case-studies/pvnrw-futureascend.png",
+    "techStack": ["Node.js", "Next.js", "Vercel", "Google Analytics & Ads"]
+},
+"cchsllc-futureascend": {
+    "title": "Leading Healthcare Doctor's Portfolio",
+    "client": "Confidential",
+    "industry": "Healthcare",
+    "duration": "1 week",
+    "website": "https://www.cchsllc.com",
+    "challenge": "The client, a renowned healthcare professional, required a sleek and professional online portfolio to showcase their skills, achievements, and services. The website needed to balance simplicity with elegance, ensuring it captured the attention of potential patients while being easy to navigate.",
+    "solution": "We utilized WordPress with Elementor Pro and Astra Pro to create a visually stunning and responsive portfolio website. The design focused on presenting the client’s professional accomplishments in a clean, structured layout. With Yoast SEO integration, the website was optimized for search engines, increasing its visibility in a competitive online space.",
+
+    "results": [
+        { "metric": "99%", "description": "Client satisfaction with the final design and functionality" },
+        { "metric": "WordPress-Based", "description": "Easy-to-maintain platform for future updates" },
+        { "metric": "Small-Scale Website", "description": "Streamlined and efficient design for targeted needs" },
+        { "metric": "Increased Visibility", "description": "Improved search rankings due to SEO optimization" }
+    ],
+    "testimonial": {
+        "quote": "FutureAscend transformed my online presence with a stunning portfolio website. The attention to detail, SEO optimization, and user-friendly design exceeded my expectations. I highly recommend their expertise!",
+        "author": "Confidential",
+        "role": "Healthcare Professional"
+    },
+    "image": "/case-studies/cchsllc-futureascend.png",
+    "techStack": ["WordPress", "Elementor Pro", "Astra Pro", "Yoast SEO"]
+},
+
+"bnbfarm-futureascend": {
+    "title": "Crypto Startup Project",
+    "client": "Confidential",
+    "industry": "Web3 and Blockchain",
+    "duration": "2 weeks",
+    "website": "",
+    "challenge": "The client, a blockchain-focused startup in India, required a lightweight and secure website to showcase their services and provide an interactive profit calculator. The primary goal was to build trust and engage users in the rapidly evolving Web3 space while maintaining optimal performance and security.",
+    "solution": "We developed a highly secure and interactive website using simple HTML, CSS, and JavaScript (etherJS) as per the client's requirements. The design was tailored to the Web3 audience, ensuring clarity and ease of use. A custom profit calculator was integrated to enhance user engagement, and the site was optimized for 100% uptime to provide uninterrupted access.",
+    "results": [
+        { "metric": "100%", "description": "Secure platform with no vulnerabilities" },
+        { "metric": "Profit Calculator", "description": "Custom-built feature to enhance user interaction" },
+        { "metric": "100% Uptime", "description": "Seamless access and reliability" },
+        { "metric": "Localized Concept", "description": "Localized design to target the specific audience" }
+    ],
+    "testimonial": {
+        "quote": "The team at FutureAscend delivered exactly what we needed—an efficient, secure, and engaging website. Their expertise in understanding Web3 requirements was exceptional. Highly recommended!",
+        "author": "Confidential",
+        "role": "Founder, BNBFarm"
+    },
+    "image": "/case-studies/bnbfarm-futureascend.png",
+    "techStack": ["HTML", "CSS", "JavaScript (etherJS)"]
+},
+"ssfmarketing-futureascend": {
+    "title": "Real Estate Platform",
+    "client": "Haseeb Shabbir",
+    "industry": "Real Estate",
+    "duration": "6 months",
+    "website": "",
+    "challenge": "The client, operating in Pakistan's competitive real estate market, required a robust online platform to manage thousands of daily property deals efficiently. The platform needed to scale effectively while automating key processes to reduce manual efforts and improve user experience.",
+    "solution": "We developed a scalable real estate platform using React, React Native, and MySQL. The web application streamlined property listings and user management, while the mobile app allowed users to browse and finalize deals on the go. By integrating automation tools, we reduced manual interventions in listing approvals and lead management. The platform was designed to handle a high volume of daily transactions while providing seamless experiences across devices.",
+    "approach": [
+        "Collaborated with the client to define key functionalities and scalability requirements",
+        "Developed a user-friendly web interface using React and a mobile app with React Native",
+        "Optimized backend processes with MySQL for efficient data handling and queries",
+        "Implemented automation for property listing approvals and lead management",
+        "Conducted rigorous testing to ensure scalability and performance under heavy traffic"
+    ],
+    "results": [
+        { "metric": "350%", "description": "Increase in daily property deals" },
+        { "metric": "50%", "description": "More user engagement and registrations" },
+        { "metric": "70%", "description": "Automation in processes, reducing manual efforts" },
+        { "metric": "Localized Design", "description": "Tailored solution for the Pakistani real estate market" }
+    ],
+    "testimonial": {
+        "quote": "FutureAscend delivered a game-changing platform for our real estate business. The automation and scalability have significantly boosted our daily operations and user engagement. Their technical expertise is unmatched.",
+        "author": "Haseeb Shabbir",
+        "role": "Founder, SSF Marketing"
+    },
+    "image": "/case-studies/ssfmarketing-futureascend.png",
+    "techStack": ["React", "React Native", "MySQL"]
+},
+"akosCreative-futureascend": {
+    "title": "E-Commerce Shop in Sweden",
+    "client": "Confidential",
+    "industry": "E-Commerce",
+    "duration": "3 weeks",
+    "website": "",
+    "challenge": "The client needed a modern e-commerce platform tailored to Swedish market trends, with seamless integration for logistics and real-time tracking. Ensuring a user-friendly shopping experience while providing full admin control was a critical requirement.",
+    "solution": "We built an engaging and scalable e-commerce website using WordPress WooCommerce, along with essential plugins such as 'WooCommerce Subscriptions' for recurring payments and 'Advanced Coupons' for enhanced promotions. The platform was designed with a clean UI, optimized for conversions, and integrated with logistics APIs to provide real-time tracking and updates. Full admin support was implemented to enable effortless inventory and order management.",
+
+    "results": [
+        { "metric": "User Engaging", "description": "Enhanced shopping experience with intuitive design" },
+        { "metric": "Following Trends", "description": "Adhered to the latest e-commerce practices" },
+        { "metric": "Full Admin Support", "description": "Streamlined backend operations for the client" },
+        { "metric": "20% Faster Load Time", "description": "Optimized performance for seamless shopping experience" }
+
+    ],
+    "testimonial": {
+        "quote": "FutureAscend built an  e-commerce platform that exceeded our expectations. The added functionalities and user-centric design have significantly improved our operations and customer satisfaction.",
+        "author": "Confidential",
+        "role": "Founder, Akos Creative"
+    },
+    "image": "/case-studies/akosCreative-futureascend.png",
+    "techStack": ["WordPress", "WooCommerce", "WooCommerce Subscriptions", "Advanced Coupons"]
+},
+"influencerCollective-futureascend": {
+    "title": "Collecting Influencers on One Platform",
+    "client": "Confidential",
+    "industry": "Marketing and Networking",
+    "duration": "1.5 months",
+    "website": "https://www.influencer-collective.com",
+    "challenge": "The client wanted to create a platform that centralizes influencer hiring, making it easy for businesses to find, assess, and collaborate with influencers across various domains. The goal was to develop a unique, dynamic, and visually appealing platform.",
+    "solution": "We developed a highly dynamic WordPress platform, incorporating Elementor Pro for flexibility in design and functionality. The platform included a directory of influencers with search and filter capabilities, user profiles, and collaboration management tools. To enhance engagement, we added features such as live chat integration and social media feeds, allowing businesses to connect with influencers seamlessly.",
+
+    "results": [
+        { "metric": "Unique Idea", "description": "Revolutionized influencer hiring with a centralized approach" },
+        { "metric": "WordPress", "description": "Leveraged the platform's dynamic capabilities for development" },
+        { "metric": "Fully Dynamic", "description": "Real-time updates and seamless user interaction" },
+        { "metric": "15% Increase in Engagement", "description": "Boosted interaction through dynamic features" }
+    ],
+    "testimonial": {
+        "quote": "The platform FutureAscend built for us has completely changed how we connect with influencers. The functionality, design, and ease of use have been phenomenal for our business.",
+        "author": "Confidential",
+        "role": "Founder, Influencer Collective"
+    },
+    "image": "/case-studies/influencerCollective-futureascend.png",
+    "techStack": ["WordPress", "Elementor Pro", "Yoast SEO", "Live Chat Plugin"]
+}
+
+
+
+
+
+
+    // Add more case studies here as needed
+  }
+
+  return caseStudies[slug] || null
+}
+
+export default function CaseStudyPage({ params }: { params: { slug: string } }) {
+  const caseStudy = getCaseStudy(params.slug)
+
+  if (!caseStudy) {
+    return (
+      <div className="flex min-h-screen flex-col">
+        <NavBar />
+        <main className="flex-grow">
+          <section className="bg-gray-900 text-white py-24 relative">
+            <AnimatedGradient />
+            <div className="container">
+              <div className="max-w-3xl mx-auto text-center">
+                <h1 className="text-4xl font-bold mb-6">Case Study Not Found</h1>
+                <p className="text-xl mb-8">We could not find the requested case study. Please check the URL or contact support.</p>
+              </div>
+            </div>
+          </section>
+        </main>
+
+       {/* Contact Section */}
+       <EnhancedContactForm />
+
+      <Footer />
+
+
+
+      </div>
+    )
+  }
+
+  return (
+    <div className="flex min-h-screen flex-col">
+      <NavBar />
+      <main className="flex-grow">
+        {/* Hero Section */}
+        <section className="bg-gray-900 text-white py-24 relative">
+            <AnimatedGradient />
+          <div className="container">
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="text-4xl font-bold mb-6">{caseStudy.title}</h1>
+              <p className="text-xl mb-8">Discover how we revolutionized delivery for {caseStudy.client}</p>
+              <Button className="bg-blue-500 hover:bg-blue-600 text-white">
+                View Full Case Study
+                <ArrowDown className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Project Overview */}
+        <section className="pt-24 bg-white  px-5 md:px-32">
+          <div className="container">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl font-bold mb-6">Project Overview</h2>
+                <dl className="grid grid-cols-2 gap-4 mb-8">
+                  <div>
+                    <dt className="font-semibold text-gray-600">Client</dt>
+                    <dd>{caseStudy.client}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-gray-600">Industry</dt>
+                    <dd>{caseStudy.industry}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-gray-600">Duration</dt>
+                    <dd>{caseStudy.duration}</dd>
+                  </div>
+                </dl>
+                <h3 className="text-xl font-bold mb-2">The Challenge</h3>
+                <p className="mb-4 text-gray-600">{caseStudy.challenge}</p>
+                <h3 className="text-xl font-bold mb-2">Our Solution</h3>
+                <p className="mb-4 text-gray-600">{caseStudy.solution}</p>
+
+                {
+      caseStudy.website ? (
+        <Link target="_blank" href={caseStudy.website} passHref>
+          <p className="text-grey-900 text-lg font-semibold py-2 rounded">
+            Link: {caseStudy.website}
+          </p>
+        </Link>
+      ) : (
+        <p className="text-grey-900 text-lg font-semibold py-2 rounded">
+          Link: Website not available, client may have taken it down
+        </p>
+      )
+    }
+
+
+              </div>
+
+              <div className="relative h-96 rounded-lg overflow-hidden">
+  <Image
+    src={caseStudy.image}
+    alt={caseStudy.title}
+    layout="fill"
+    className="object-cover"
+  />
+
+</div>
+
+            </div>
+          </div>
+        </section>
+
+
+        {/* Results */}
+        <section className="py-24 bg-white  px-5 md:px-32">
+          <div className="container">
+            <h2 className="text-3xl font-bold text-center mb-12">Impressive Results</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {caseStudy.results.map((result, index) => (
+                <Card key={index} className="text-center hover:shadow-lg transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="text-3xl font-bold text-blue-500 mb-2">{result.metric}</div>
+                    <p className="text-gray-600">{result.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Technology Stack */}
+        <section className="pb-10 bg-gray-50  px-5 md:px-32">
+          <div className="container">
+            <h2 className="text-3xl font-bold text-center mb-12">Technology Stack</h2>
+            <div className="flex flex-wrap justify-center gap-4">
+              {caseStudy.techStack.map((tech, index) => (
+                <div key={index} className="bg-white rounded-full px-4 py-2 text-blue-500 font-semibold shadow-md">
+                  {tech}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonial */}
+        <section className="py-24 bg-gray-900 text-white relative">
+          <AnimatedGradient />
+          <div className="container">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-3xl font-bold mb-8">Client Testimonial</h2>
+              <blockquote className="text-2xl italic mb-6">
+                "{caseStudy.testimonial.quote}"
+              </blockquote>
+              <div className="flex items-center justify-center">
+                <div className="text-left">
+                  <p className="font-bold">{caseStudy.testimonial.author}</p>
+                  <p className="text-gray-400">{caseStudy.testimonial.role}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+      </main>
+
+        {/* Contact Section */}
+       <EnhancedContactForm />
+
+      <Footer />
+
+    </div>
+  )
+}
