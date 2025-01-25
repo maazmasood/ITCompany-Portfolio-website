@@ -10,6 +10,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Label } from "@/components/ui/label";
 import { Loader2, Send, Sparkles, CheckCircle } from "lucide-react";
 
+import { AnimatedGradient } from './animated-gradient';
+
 const NewContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -75,12 +77,7 @@ const NewContactForm = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A0F1E] px-4 py-12 sm:px-6 lg:px-8">
       {/* Animated background gradients */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -inset-[10px] opacity-50">
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-full bg-gradient-to-r from-violet-600/20 to-indigo-600/20 blur-3xl" />
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-full bg-gradient-to-r from-blue-600/20 to-cyan-600/20 blur-3xl" />
-        </div>
-      </div>
+      <AnimatedGradient />
 
       <div className="relative w-full max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
