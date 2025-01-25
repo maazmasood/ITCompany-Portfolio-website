@@ -95,7 +95,7 @@ export default function SolutionsPage() {
 
 
         {/* Case Study Highlight */}
-        <section className="relative py-24 bg-gray-900 text-white px-5 md:px-32">
+        <section className="relative mb-1 py-24 bg-gray-900 text-white px-5 md:px-32">
           <AnimatedGradient />
           <div className="container">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center  z-20">
@@ -138,7 +138,7 @@ export default function SolutionsPage() {
                   src="/case-studies/pvnrw-futureascend.png"
                   alt="case-studies-pvnrw-futureascend.png"
                   fill
-                  className="object-cover"
+                  
                 />
               </div>
             </div>

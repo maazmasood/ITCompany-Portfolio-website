@@ -35,7 +35,7 @@ import Head from "next/head"
 
 export default function Page() {
   return (
-      <div className="flex min-h-screen flex-col">  
+      <div className="flex min-h-screen flex-col">
         <NavBar />
 
         {/* Hero Section */}

@@ -3,11 +3,14 @@ import nodemailer from 'nodemailer';
 
 export async function POST(req) {
   try {
-    // Destructure the received data
-    const { fullName, email, company, phone, projectDetails } = await req.json();
+    const formData = await req.json();
+    console.log('Received form data:', formData); // Add this line to log the incoming data
+
+    const { name, email, phone, budget, note } = formData;
 
     // Validate the input data
-    if (!fullName || !email || !phone) {
+    if (!name || !email || !phone || !budget) {
+      console.log('Validation failed. Missing required fields'); // Add this log
       return new Response(
         JSON.stringify({ message: 'Missing required fields.' }),
         { status: 400 }
@@ -16,38 +19,43 @@ export async function POST(req) {
 
     // Set up the Nodemailer transporter (replace with your actual SMTP details)
     const transporter = nodemailer.createTransport({
-      host: 'mail.privateemail.com', // Example SMTP server
-      port: 587, // Port for TLS
-      secure: false, // Use TLS, not SSL
-      auth: {
-        user: process.env.PRIVATE_EMAIL_USER,
-        pass: process.env.PRIVATE_EMAIL_PASSWORD,
-      },
-    });
+        host: 'mail.privateemail.com', // Example SMTP server
+        port: 587, // Port for TLS
+        secure: false, // Use TLS, not SSL
+        auth: {
+          user: process.env.PRIVATE_EMAIL_USER,
+          pass: process.env.PRIVATE_EMAIL_PASSWORD,
+        },
+      });
 
     // Define the email options
     const mailOptions = {
       from: process.env.PRIVATE_EMAIL_USER, // Sender address
-      to: process.env.PRIVATE_PERSONAL_EMAIL, // Your personal email address
-      subject: `New Inquiry from ${fullName} (${company})`,
-      text: `Full Name: ${fullName}\nEmail: ${email}\nPhone: ${phone}\nCompany: ${company}\n\nProject Details: ${projectDetails}`,
+      to: process.env.PRIVATE_PERSONAL_EMAIL, // The email address where the form submissions should be sent
+      subject: `New Inquiry from ${name}`, // Subject of the email
+      text: `
+        Name: ${name}
+        Email: ${email}
+        Phone: ${phone}
+        Budget: ${budget}
+
+        Additional Notes:
+        ${note || 'No additional notes provided'}
+      `,
     };
 
     // Send the email
     await transporter.sendMail(mailOptions);
 
-    // Log the received data for debugging
-    //console.log('Received form data:', { fullName, email, company, phone, projectDetails });
-
     // Respond with success message
     return new Response(
-      JSON.stringify({ message: 'Thank you for filling the form, Our team will get in touch soon!' }),
+      JSON.stringify({ message: 'Thank you for your interest. Our team will review your request and get back to you shortly.' }),
       { status: 200 }
     );
   } catch (error) {
     console.error('Error handling form submission:', error);
     return new Response(
-      JSON.stringify({ message: 'Internal server error.' }),
+      JSON.stringify({ message: 'An unexpected error occurred. Please try again later.' }),
       { status: 500 }
     );
   }

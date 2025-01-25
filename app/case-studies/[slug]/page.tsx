@@ -121,26 +121,8 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
           </div>
         </section>
 
-
-        {/* Results */}
-        <section className="py-24 bg-white  px-5 md:px-32">
-          <div className="container">
-            <h2 className="text-3xl font-bold text-center mb-12">Impressive Results</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {caseStudy.results.map((result, index) => (
-                <Card key={index} className="text-center hover:shadow-lg transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="text-3xl font-bold text-blue-500 mb-2">{result.metric}</div>
-                    <p className="text-gray-600">{result.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Technology Stack */}
-        <section className="pb-10 bg-gray-50  px-5 md:px-32">
+        <section className="pt-24 pb-10 bg-gray-50  px-5 md:px-32">
           <div className="container">
             <h2 className="text-3xl font-bold text-center mb-12">Technology Stack</h2>
             <div className="flex flex-wrap justify-center gap-4">
@@ -153,8 +135,26 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
           </div>
         </section>
 
+        {/* Results */}
+        <section className="pb-10 pt-5 bg-gray-50  px-5 md:px-32">
+          <div className="container">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {caseStudy.results.map((result, index) => (
+                <Card key={index} className="text-center hover:shadow-lg transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="text-3xl font-bold text-blue-500 mb-2">{result.metric}</div>
+                    <p className="text-gray-600">{result.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+
+
         {/* Testimonial */}
-        <section className="py-24 bg-gray-900 text-white relative">
+        <section className="py-24 mb-1 bg-gray-900 text-white relative">
           <AnimatedGradient />
           <div className="container">
             <div className="max-w-3xl mx-auto text-center">
