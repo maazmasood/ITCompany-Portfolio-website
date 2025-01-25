@@ -112,7 +112,6 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
     src={caseStudy.image}
     alt={caseStudy.title}
     layout="fill"
-    className="object-cover"
   />
 
 </div>
