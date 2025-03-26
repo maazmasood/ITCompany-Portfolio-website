@@ -65,7 +65,7 @@ export const Footer: React.FC = () => {
           <div>
             <h3 className="text-white font-semibold text-lg mb-3">Quick Links</h3>
             <ul className="space-y-2">
-              {[ "Services", "Solutions", "Case Studies", "About", "Contact"].map(
+              {[ "Services", "Solutions", "Case Studies", "About","Countries" ,  "Contact"].map(
                 (link) => (
                   <li key={link}>
                     <Link

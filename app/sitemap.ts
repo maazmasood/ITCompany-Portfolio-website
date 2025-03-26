@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import caseStudies from '@/constants/casestudy.json'; // Example data source
+import { countries } from './data/countries';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://futureascend.com';
@@ -7,6 +8,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Generate sitemap entries for case studies with priority
   const caseStudyEntries = Object.keys(caseStudies).map((slug) => ({
     url: `${baseUrl}/case-studies/${slug}`,
+    lastModified: new Date().toISOString(),
+    priority: 0.9, // Higher priority for case studies
+  }));
+
+  const countryEntries = Object.keys(countries).map((slug) => ({
+    url: `${baseUrl}/${slug}`,
     lastModified: new Date().toISOString(),
     priority: 0.9, // Higher priority for case studies
   }));
@@ -23,5 +30,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/privacy-policy`, lastModified: new Date().toISOString(), priority: 0.3 },
   ];
 
-  return [...staticEntries, ...caseStudyEntries];
+  return [...staticEntries, ...caseStudyEntries, ...countryEntries];
 }

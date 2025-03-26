@@ -183,14 +183,14 @@ export default function Page() {
         </section>
 
         {/* Success Metrics Section */}
-        <section className="bg-gray-900 py-24 relative overflow-hidden">
-          <AnimatedGradient />
+        <section className=" pt-16 pb-28 relative overflow-hidden">
+         
           <div className="container relative">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-white mb-4">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 Driving Measurable Success
               </h2>
-              <p className="text-gray-300 max-w-2xl mx-auto">
+              <p className="text-gray-600 max-w-2xl mx-auto">
                 Our solutions have consistently delivered outstanding results for our clients across various industries.
               </p>
             </div>
@@ -203,7 +203,7 @@ export default function Page() {
               ].map((item, index) => (
                 <div key={index} className="text-center">
                   <div className="text-4xl font-bold text-blue-400 mb-2">{item.metric}</div>
-                  <div className="text-gray-300">{item.label}</div>
+                  <div className="text-gray-900">{item.label}</div>
                 </div>
               ))}
             </div>
