@@ -81,7 +81,7 @@ export function TechStack() {
         <Tabs defaultValue="AI & ML" className="w-full mx-auto">
           <div className="relative mb-10">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-xl opacity-30 rounded-xl"></div>
-            <TabsList className="relative flex justify-evenly mb-8 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-1.5 overflow-x-auto">
+            <TabsList className="relative flex justify-evenly p-8 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl  overflow-x-auto overflow-y-hidden">
               {Object.entries(technologies).map(([category, { icon: Icon }]) => (
                 <TabsTrigger
                   key={category}
