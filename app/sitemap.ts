@@ -11,9 +11,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date().toISOString(),
     priority: 0.9, // Higher priority for case studies
   }));
+  
 
-  const countryEntries = Object.keys(countries).map((slug) => ({
-    url: `${baseUrl}/${slug}`,
+  const countryEntries = Object.entries(countries).map(([key, country]) => ({
+    url: `${baseUrl}/${country.slug}`,
     lastModified: new Date().toISOString(),
     priority: 0.9, // Higher priority for case studies
   }));
@@ -26,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/services`, lastModified: new Date().toISOString(), priority: 0.9 }, // Services, important
     { url: `${baseUrl}/solutions`, lastModified: new Date().toISOString(), priority: 0.9 },
     { url: `${baseUrl}/case-studies`, lastModified: new Date().toISOString(), priority: 0.9 },
+    { url: `${baseUrl}/countries`, lastModified: new Date().toISOString(), priority: 0.9 },
     { url: `${baseUrl}/terms-and-conditions`, lastModified: new Date().toISOString(), priority: 0.3 }, // Less critical pages
     { url: `${baseUrl}/privacy-policy`, lastModified: new Date().toISOString(), priority: 0.3 },
   ];
