@@ -2,6 +2,7 @@
 import './globals.css'
 import { Metadata } from 'next'
 import Discount from "@/components/discount"
+import Script from 'next/script'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.futureascend.com'),
@@ -50,7 +51,20 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {/*<Discount /> Uncomment this if you need to display the Discount component */}
+
         {children}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-92TBSNJ5YX"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-92TBSNJ5YX');
+          `}
+        </Script>
       </body>
     </html>
   )
