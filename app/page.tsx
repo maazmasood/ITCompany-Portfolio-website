@@ -170,7 +170,7 @@ export default function Page() {
         <HowWeWork />
 
         {/* Technology Stack Section */}
-        <section className="py-20 px-5 md:px-32bg-white">
+        <section className="py-20 px-5 md:px-32 bg-white">
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Technology Arsenal</h2>

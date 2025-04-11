@@ -51,17 +51,15 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
       <NavBar />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="bg-gray-900 text-white py-24 relative">
+        <section className="bg-gray-900 text-white py-24 flex items-center justify-center relative">
             <AnimatedGradient />
-          <div className="container">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl font-bold mb-6">{caseStudy.title}</h1>
-              <p className="text-xl mb-8">Discover how we revolutionized delivery for {caseStudy.client}</p>
-              <Button className="bg-blue-500 hover:bg-blue-600 text-white">
-                View Full Case Study
-                <ArrowDown className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
+          <div className="text-center">
+            <h1 className="text-4xl font-bold mb-6">{caseStudy.title}</h1>
+            <p className="text-xl mb-8">Discover how we revolutionized delivery for {caseStudy.client}</p>
+            <Button className="bg-blue-500 hover:bg-blue-600 text-white">
+              View Full Case Study
+              <ArrowDown className="ml-2 h-4 w-4" />
+            </Button>
           </div>
         </section>
 
@@ -155,17 +153,15 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
         {/* Testimonial */}
         <section className="py-24 mb-1 bg-gray-900 text-white relative">
           <AnimatedGradient />
-          <div className="container">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-8">Client Testimonial</h2>
-              <blockquote className="text-2xl italic mb-6">
+          <div className="container mx-auto px-4 md:px-6 lg:px-8">
+            <div className="max-w-3xl text-center mx-auto">
+              <h2 className="text-3xl font-bold mb-8 text-center">Client Testimonial</h2>
+              <blockquote className="text-2xl italic mb-6 text-center">
                 "{caseStudy.testimonial.quote}"
               </blockquote>
-              <div className="flex items-center justify-center">
-                <div className="text-left">
-                  <p className="font-bold">{caseStudy.testimonial.author}</p>
-                  <p className="text-gray-400">{caseStudy.testimonial.role}</p>
-                </div>
+              <div className="flex flex-col items-center justify-center">
+                <p className="font-bold text-center">{caseStudy.testimonial.author}</p>
+                <p className="text-gray-400 text-center">{caseStudy.testimonial.role}</p>
               </div>
             </div>
           </div>
