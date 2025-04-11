@@ -19,9 +19,10 @@ export async function POST(req) {
 
     // Set up the Nodemailer transporter (replace with your actual SMTP details)
     const transporter = nodemailer.createTransport({
-        host: 'mail.privateemail.com', // Example SMTP server
-        port: 587, // Port for TLS
-        secure: false, // Use TLS, not SSL
+     //   host: 'mail.privateemail.com', // Example SMTP server
+      //  port: 587, // Port for TLS
+       // secure: false, // Use TLS, not SSL
+        service: 'gmail',
         auth: {
           user: process.env.PRIVATE_EMAIL_USER,
           pass: process.env.PRIVATE_EMAIL_PASSWORD,
